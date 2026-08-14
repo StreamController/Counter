@@ -1,0 +1,38 @@
+{
+    "plugin": {
+        "description": "A counter on a key: pressing it counts up, holding it counts down or resets.",
+        "requirements": "Nothing."
+    },
+    "actions": {
+        "Counter": {
+            "description": "Counts presses and shows the current number on the key. A short press adds one, a long press subtracts one or resets to 0.",
+            "settings": {
+                "restore": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Keep the number across restarts. Turn it off to always start at 0."
+                },
+                "on_long_drop_down": {
+                    "type": "string",
+                    "default": "Revert",
+                    "values": [
+                        "Subtract",
+                        "Revert"
+                    ],
+                    "description": "What a long press does: \"Subtract\" counts one down, \"Revert\" sets the counter back to 0."
+                },
+                "save_to_file": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Also write the current number into a text file, so other programs can read it."
+                },
+                "file_path": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The file to write the number into. Only used with save_to_file.",
+                    "example": "/home/user/counter.txt"
+                }
+            }
+        }
+    }
+}
